@@ -1,0 +1,60 @@
+@import '../../sass/button.scss';
+
+.image-input {
+    display: flex;
+    gap: 1rem;
+    font-size: 1.5rem;
+    align-items: center;
+
+    &__image-name {
+        text-align: center;
+        flex-grow: 1;
+        background-color: #1a1a1a;
+        height: 3.25rem;
+        padding: 0.4rem 0.6rem;
+        border-radius: 0.3rem;
+
+        display: flex;
+        align-items: center;
+
+        span {
+            color: hsl(213, 42%, 50%);
+        }
+    }
+
+    input {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+
+        &:hover, &:focus-visible {
+            &+label {
+                background-color: hsl(213, 42%, 27.5%);
+            }
+        }
+
+        &:focus-visible {
+            &+label {
+                outline: 0.1em solid var(--text-color);
+            }
+        }
+
+        &:active {
+            &+label {
+                background-color: hsl(213, 42%, 25%);
+            }
+        }
+    }
+
+    label {
+        @extend .button;
+
+        background-color: hsl(213, 42%, 30%);
+        padding: 0.4em 0.6em 0.4em 0.5em;
+        height: 3.25rem;
+        flex-shrink: 0;
+    }
+}

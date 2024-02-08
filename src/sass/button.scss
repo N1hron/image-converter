@@ -1,0 +1,57 @@
+.button {
+    cursor: pointer;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    padding: 0.4em;
+    border: 0;
+    border-radius: 0.15em;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+
+    transition: background-color 0.1s, scale 0.15s;
+    background-color: hsl(161, 50%, 30%);
+
+    svg {
+        height: 100%;
+        width: auto;
+        fill: var(--text-color);
+    }
+
+    &:hover, &:focus-visible {
+        background-color: hsl(161, 50%, 27.5%);
+    }
+
+    &:focus-visible {
+        outline: 0.15rem solid var(--text-color);
+    }
+
+    &:active {
+        background-color: hsl(161, 50%, 25%);
+    }
+
+    &:disabled {
+        scale: 0.9;
+        background-color: #434343;
+        cursor: default;
+        pointer-events: none;
+    }
+
+    &_dark {
+        background-color: hsl(213, 42%, 30%);
+
+        &:hover, &:focus-visible {
+            background-color: hsl(213, 42%, 27.5%);
+        }
+
+        &:focus-visible {
+            outline: 0.1em solid var(--text-color);
+        }
+
+        &:active {
+            background-color: hsl(213, 42%, 25%);
+        }
+    }
+}

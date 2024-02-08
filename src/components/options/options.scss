@@ -1,0 +1,75 @@
+@import '../../sass/button.scss';
+
+.options {
+    display: grid;
+    gap: 1rem;
+
+    &__bg-select {
+        display: grid;
+        gap: 1rem;
+
+        p {
+            text-align: center;
+        }
+
+        &-buttons {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    &__image-name-edit {
+        display: grid;
+        gap: 1rem;
+
+        label {
+            text-align: center;
+        }
+    }
+
+    &__input-container {
+        display: flex;
+        align-items: center;
+        background-color: #1a1a1a;
+        border-radius: 0.3rem;
+        margin-left: 3rem;
+        position: relative;
+        min-width: 25rem;
+
+        svg {
+            fill: var(--text-color);
+            flex-shrink: 0;
+            width: 2.5rem;
+            height: 2.5rem;
+            position: absolute;
+            left: -3rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        input {
+            height: 100%;
+            background-color: #1a1a1a;
+            color: var(--text-color);
+            border: none;
+            outline: none;
+            flex-grow: 1;
+            min-width: 10px;
+            padding: 0.4rem 0.6rem;
+            margin-right: 2px;
+            border-radius: 0.3rem;
+
+            &:focus-visible {
+                outline: 0.15rem solid var(--text-color);
+            }
+        }
+
+        span {
+            padding: 0.4rem 0.6rem;
+            background-color: #1a1a1a;
+            color: hsl(213, 42%, 50%);
+            border-radius: 0.3rem;
+        }
+    }
+}

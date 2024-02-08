@@ -1,0 +1,17 @@
+@import '../../sass/button.scss';
+
+.format-select {
+    display: grid;
+    gap: 1rem;
+
+    &>p {
+        text-align: center;
+    }
+
+    &__buttons {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        min-width: 25rem;
+    }
+}
