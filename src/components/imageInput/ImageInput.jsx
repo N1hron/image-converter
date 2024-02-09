@@ -2,13 +2,13 @@ import { useState, useId } from 'react'
 
 import './imageInput.scss'
 
-export default function ImageInput({ setImage, image }) {
+export default function ImageInput({ setImageFile, imageFile }) {
     const inputId = useId()
 
     function onChange(event) {
         const file = event.target.files[0]
 
-        setImage(file)
+        setImageFile(file)
     }
 
     return (
@@ -26,13 +26,13 @@ export default function ImageInput({ setImage, image }) {
                 </svg>
                 Select image
             </label>
-            { image?.name && setImageName(image.name) }
+            { imageFile?.name && setImageName(imageFile.name) }
         </div>
     )
 }
 
 function setImageName(name) {
-    let right = name.split('.')[1],
+    let right = name.split('.').at(-1),
         left = name.split('.')[0]
 
     if (left.length > 13) {

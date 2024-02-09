@@ -2,10 +2,10 @@ import { useId } from 'react'
 
 import './options.scss'
 
-export default function Options({ image, format, background, imageName, setImageName, setBackground }) {
+export default function Options({ imageFile, format, background, imageName, setImageName, setBackground }) {
     const imageNameInputId = useId()
 
-    const showBackgroundOptions = !(/image\/(jpeg|bmp)/).test(image.type) && format === 'jpeg'
+    const showBackgroundOptions = !(/image\/(jpeg|bmp)/).test(imageFile.type) && format === 'jpeg'
     
     return (
         <div className='options'>

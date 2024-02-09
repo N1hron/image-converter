@@ -4,36 +4,38 @@ import ImageInput from '../imageInput/ImageInput'
 import FormatSelect from '../formatSelect/FormatSelect'
 import Options from '../options/Options'
 
+import convertImage from '../../utils/convertImage'
+import downloadImage from '../../utils/downloadImage'
+
 import 'normalize.css'
 import './app.scss'
 
 export default function App() {
-    const [image, setImage] = useState(null),
+    const [imageFile, setImageFile] = useState(null),
           [format, setFormat] = useState(null),
           [background, setBackground] = useState('light'),
           [imageName, setImageName] = useState(null)
 
     useEffect(() => {
-        if (image) setImageName(image.name.split('.')[0])
-    }, [image?.name])
+        if (imageFile) setImageName(imageFile.name.split('.')[0])
+    }, [imageFile?.name])
 
     function onDownloadButtonClick() {
-        console.log(image)
-        console.log(format)
-        console.log(background)
-        console.log(imageName)
+        convertImage(imageFile, format, background).then((convertedImage) => {
+            downloadImage(convertedImage, imageName)
+        })
     }
     
     return (
         <>
             <main>
                 <div className='converter'>
-                    <ImageInput setImage={ setImage } image={ image }/>
-                    { image && <FormatSelect setFormat={ setFormat } selectedFormat={ format }/> }
+                    <ImageInput setImageFile={ setImageFile } imageFile={ imageFile }/>
+                    { imageFile && <FormatSelect setFormat={ setFormat } selectedFormat={ format }/> }
                     { 
-                        image && format && 
+                        imageFile && format && 
                         <Options 
-                            image={ image } 
+                            imageFile={ imageFile } 
                             format={ format } 
                             background={ background } 
                             imageName={ imageName }
@@ -41,7 +43,7 @@ export default function App() {
                             setBackground={ setBackground }
                         /> 
                     }
-                    { image && format && <button className='button button_dark' onClick={ onDownloadButtonClick }>Download</button> }
+                    { imageFile && format && <button className='button button_dark' onClick={ onDownloadButtonClick }>Download</button> }
                 </div>
             </main>
             <footer>
