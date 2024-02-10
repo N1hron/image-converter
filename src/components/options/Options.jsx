@@ -5,9 +5,9 @@ import './options.scss'
 export default function Options({ imageFile, format, background, imageName, setImageName, setBackground }) {
     const imageNameInputId = useId()
 
-    const showBackgroundOptions = !(/image\/(jpeg|bmp)/).test(imageFile.type) && format === 'jpeg'
-    
     if ( !(imageFile && format) ) return
+
+    const showBackgroundOptions = !(/image\/(jpeg|bmp)/).test(imageFile.type) && format === 'jpeg'
     return (
         <div className='options'>
             { 
