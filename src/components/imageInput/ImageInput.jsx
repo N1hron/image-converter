@@ -17,7 +17,7 @@ export default function ImageInput({ setImageFile, imageFile }) {
     }
 
     const ext = imageFile?.name.split('.').at(-1),
-          name = cropFileName(imageFile?.name.split('.').slice(0, -1).join('.'))
+          name = imageFile && cropFileName(imageFile.name.split('.').slice(0, -1).join('.'))
 
     return (
         <div className='image-input'>
