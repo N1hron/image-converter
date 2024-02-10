@@ -28,7 +28,7 @@ export default function App() {
 
     function onDownloadButtonClick() {
         convertImage(imageFile, format, background).then((convertedImage) => {
-            downloadImage(convertedImage, imageName)
+            downloadImage(convertedImage, imageName, format)
         })
     }
     

@@ -1,7 +1,7 @@
-export default function downloadImage(image, imageName = '') {
+export default function downloadImage(image, imageName = '', format) {
     const a = document.createElement('a')
 
-    a.href = image.src; console.log(image)
-    a.setAttribute('download', imageName.replace('.', ''))
+    a.href = image.src;
+    a.setAttribute('download', `${imageName}.${format}`)
     a.click()
 }
