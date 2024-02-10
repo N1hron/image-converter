@@ -2,7 +2,7 @@ import './formatSelect.scss'
 
 const formats = [ 'Jpeg', 'Png', 'WebP' ]
 
-export default function FormatSelect({ setFormat, selectedFormat }) {
+export default function FormatSelect({ setFormat, selectedFormat, imageFile }) {
     function createButtons() {
         return formats.map(format => (
             <button 
@@ -16,6 +16,7 @@ export default function FormatSelect({ setFormat, selectedFormat }) {
         ))
     }
 
+    if (!imageFile) return
     return (
         <div className='format-select'>
             <p>Choose format</p>

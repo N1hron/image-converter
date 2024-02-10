@@ -7,6 +7,7 @@ export default function Options({ imageFile, format, background, imageName, setI
 
     const showBackgroundOptions = !(/image\/(jpeg|bmp)/).test(imageFile.type) && format === 'jpeg'
     
+    if ( !(imageFile && format) ) return
     return (
         <div className='options'>
             { 

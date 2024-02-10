@@ -16,9 +16,15 @@ export default function App() {
           [background, setBackground] = useState('light'),
           [imageName, setImageName] = useState(null)
 
+
     useEffect(() => {
-        if (imageFile) setImageName(imageFile.name.split('.')[0])
-    }, [imageFile?.name])
+        setFormat(null)
+        setBackground('light')
+
+        if (imageFile) {
+            setImageName(imageFile.name.split('.')[0])
+        }
+    }, [imageFile])
 
     function onDownloadButtonClick() {
         convertImage(imageFile, format, background).then((convertedImage) => {
@@ -31,19 +37,20 @@ export default function App() {
             <main>
                 <div className='converter'>
                     <ImageInput setImageFile={ setImageFile } imageFile={ imageFile }/>
-                    { imageFile && <FormatSelect setFormat={ setFormat } selectedFormat={ format }/> }
-                    { 
-                        imageFile && format && 
-                        <Options 
-                            imageFile={ imageFile } 
-                            format={ format } 
-                            background={ background } 
-                            imageName={ imageName }
-                            setImageName={ setImageName }
-                            setBackground={ setBackground }
-                        /> 
-                    }
-                    { imageFile && format && <button className='button button_dark' onClick={ onDownloadButtonClick }>Download</button> }
+                    <FormatSelect setFormat={ setFormat } selectedFormat={ format } imageFile={ imageFile }/>
+                    <Options 
+                        imageFile={ imageFile } 
+                        format={ format } 
+                        background={ background } 
+                        imageName={ imageName }
+                        setImageName={ setImageName }
+                        setBackground={ setBackground }
+                    /> 
+                    { imageFile && format && 
+
+                    <button className='button button_dark' onClick={ onDownloadButtonClick }>
+                        Download
+                    </button> }
                 </div>
             </main>
             <footer>
