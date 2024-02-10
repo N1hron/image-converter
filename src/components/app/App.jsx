@@ -22,7 +22,7 @@ export default function App() {
         setBackground('light')
 
         if (imageFile) {
-            setImageName(imageFile.name.split('.')[0])
+            setImageName(imageFile.name.split('.').slice(0, -1).join('.'))
         }
     }, [imageFile])
 
@@ -36,7 +36,7 @@ export default function App() {
         <>
             <main>
                 <div className='converter'>
-                    <ImageInput setImageFile={ setImageFile } imageFile={ imageFile }/>
+                    <ImageInput setImageFile={ setImageFile } imageFile={ imageFile } imageName={ imageName }/>
                     <FormatSelect setFormat={ setFormat } selectedFormat={ format } imageFile={ imageFile }/>
                     <Options 
                         imageFile={ imageFile } 

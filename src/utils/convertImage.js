@@ -21,7 +21,7 @@ export default async function getConvertedImage(imageFile, format, background) {
 
         return image
     })
-
+    
     return convertedImage
 }
 
