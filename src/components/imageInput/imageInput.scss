@@ -23,6 +23,7 @@
         z-index: 0;
         overflow: hidden;
         cursor: pointer;
+        user-select: none;
         
         svg {
             height: 3rem;

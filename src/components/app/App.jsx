@@ -55,6 +55,13 @@ export default function App() {
             </main>
             <footer>
                 <p>Made by <a href='https://github.com/N1hron' target='blank'>N1hron</a></p>
+                <p
+                    onMouseOver={ event => event.currentTarget.querySelector('a').style.display='block' }
+                    onMouseLeave={ event => event.currentTarget.querySelector('a').style.display='none' }
+                >
+                <a href="https://youtu.be/dQw4w9WgXcQ?si=Hw3Glqklfq2LR_b6" target='blank'>
+                    Lizka Sosiska (Lmao)
+                </a></p>
             </footer>
         </>
     )
