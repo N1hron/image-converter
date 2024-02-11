@@ -20,7 +20,7 @@ export default function App() {
     useEffect(() => {
         setFormat(null)
         setBackground('light')
-
+        
         if (imageFile) {
             setImageName(imageFile.name.split('.').slice(0, -1).join('.'))
         }

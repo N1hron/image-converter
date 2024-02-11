@@ -14,12 +14,6 @@
     transition: background-color 0.1s, scale 0.15s;
     background-color: hsl(161, 50%, 30%);
 
-    svg {
-        height: 100%;
-        width: auto;
-        fill: var(--text-color);
-    }
-
     &:hover, &:focus-visible {
         background-color: hsl(161, 50%, 27.5%);
     }
