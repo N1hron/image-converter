@@ -22,9 +22,7 @@
         position: relative;
         z-index: 0;
         overflow: hidden;
-
-        // transition: 1s outline-color;
-        // outline-width: 0;
+        cursor: pointer;
         
         svg {
             height: 3rem;
